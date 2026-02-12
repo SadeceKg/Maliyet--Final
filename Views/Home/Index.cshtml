@@ -1,0 +1,196 @@
+﻿@{
+    ViewData["Title"] = "Ana Sayfa";
+}
+
+@if (User.Identity?.IsAuthenticated == true)
+{
+    <div class="row">
+        <div class="col-12">
+            <h1 class="mb-4">
+                <i class="bi bi-speedometer2"></i> Dashboard
+            </h1>
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-md-3">
+            <div class="card bg-primary text-white">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h4>@ViewBag.ToplamProjeSayisi</h4>
+                            <p class="mb-0">Toplam Proje</p>
+                        </div>
+                        <div class="align-self-center">
+                            <i class="bi bi-folder fs-1"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="@Url.Action("Index", "Proje")" class="text-white text-decoration-none">
+                        <small>Detayları Gör <i class="bi bi-arrow-right"></i></small>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-success text-white">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h4>@ViewBag.AktifProjeSayisi</h4>
+                            <p class="mb-0">Aktif Proje</p>
+                        </div>
+                        <div class="align-self-center">
+                            <i class="bi bi-play-circle fs-1"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="@Url.Action("Index", "Proje")" class="text-white text-decoration-none">
+                        <small>Detayları Gör <i class="bi bi-arrow-right"></i></small>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-info text-white">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h4>@ViewBag.ToplamHakedisSayisi</h4>
+                            <p class="mb-0">Toplam Hakediş</p>
+                        </div>
+                        <div class="align-self-center">
+                            <i class="bi bi-receipt fs-1"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="@Url.Action("Index", "Hakedis")" class="text-white text-decoration-none">
+                        <small>Detayları Gör <i class="bi bi-arrow-right"></i></small>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-warning text-white">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h4>@ViewBag.BekleyenHakedisSayisi</h4>
+                            <p class="mb-0">Bekleyen Hakediş</p>
+                        </div>
+                        <div class="align-self-center">
+                            <i class="bi bi-clock fs-1"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="@Url.Action("Index", "Hakedis")" class="text-white text-decoration-none">
+                        <small>Detayları Gör <i class="bi bi-arrow-right"></i></small>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5><i class="bi bi-currency-dollar"></i> Toplam Hakediş Tutarı</h5>
+                </div>
+                <div class="card-body">
+                    <h2 class="text-success">@ViewBag.ToplamHakedisTutari?.ToString("C", new System.Globalization.CultureInfo("tr-TR"))</h2>
+                    <p class="text-muted">Onaylanan ve ödenen hakediş tutarları</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5><i class="bi bi-clock-history"></i> Son Hakediş İşlemleri</h5>
+                </div>
+                <div class="card-body">
+                    @if (ViewBag.SonHakedisler != null && ((List<HakedisYonetimSistemi.Models.Hakedis>)ViewBag.SonHakedisler).Any())
+                    {
+                        <div class="list-group list-group-flush">
+                            @foreach (var hakedis in (List<HakedisYonetimSistemi.Models.Hakedis>)ViewBag.SonHakedisler)
+                            {
+                                <div class="list-group-item d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h6 class="mb-1">@hakedis.HakedisNo</h6>
+                                        <p class="mb-1">@hakedis.Proje.ProjeAdi</p>
+                                        <small>@hakedis.HakedisTarihi.ToString("dd.MM.yyyy")</small>
+                                    </div>
+                                    <span class="badge bg-@(hakedis.Durum == HakedisYonetimSistemi.Models.HakedisDurum.Onaylandi ? "success" : 
+                                                            hakedis.Durum == HakedisYonetimSistemi.Models.HakedisDurum.Onayda ? "warning" : 
+                                                            hakedis.Durum == HakedisYonetimSistemi.Models.HakedisDurum.Reddedildi ? "danger" : "secondary") rounded-pill">
+                                        @hakedis.Durum
+                                    </span>
+                                </div>
+                            }
+                        </div>
+                    }
+                    else
+                    {
+                        <p class="text-muted">Henüz hakediş işlemi bulunmuyor.</p>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="text-center">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h1 class="display-4 mb-4">
+                    <i class="bi bi-building text-primary"></i> Hakediş Yönetim Sistemi
+                </h1>
+                <p class="lead mb-4">
+                    İnşaat projelerinizin hakediş ve maliyet hesaplamalarını kolayca yönetin.
+                </p>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body text-center">
+                                <i class="bi bi-folder-plus fs-1 text-primary mb-3"></i>
+                                <h5>Proje Yönetimi</h5>
+                                <p>Projelerinizi oluşturun ve takip edin</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body text-center">
+                                <i class="bi bi-receipt fs-1 text-success mb-3"></i>
+                                <h5>Hakediş Takibi</h5>
+                                <p>Hakediş işlemlerinizi düzenleyin</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body text-center">
+                                <i class="bi bi-calculator fs-1 text-info mb-3"></i>
+                                <h5>Maliyet Hesaplama</h5>
+                                <p>Detaylı maliyet analizleri yapın</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <a class="btn btn-primary btn-lg me-3" asp-area="Identity" asp-page="/Account/Login">
+                        <i class="bi bi-box-arrow-in-right"></i> Giriş Yap
+                    </a>
+                    <a class="btn btn-outline-primary btn-lg" asp-area="Identity" asp-page="/Account/Register">
+                        <i class="bi bi-person-plus"></i> Kayıt Ol
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,130 @@
+@model HakedisYonetimSistemi.Models.Proje
+
+@{
+    ViewData["Title"] = "Proje Detayları";
+}
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h4><i class="bi bi-folder"></i> @Html.DisplayFor(model => model.ProjeAdi)</h4>
+                <span class="badge bg-@(Model.Durum == HakedisYonetimSistemi.Models.ProjeDurum.Aktif ? "success" : 
+                                      Model.Durum == HakedisYonetimSistemi.Models.ProjeDurum.Beklemede ? "warning" : 
+                                      Model.Durum == HakedisYonetimSistemi.Models.ProjeDurum.Tamamlandi ? "primary" : "secondary")">
+                    @Html.DisplayFor(model => model.Durum)
+                </span>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <dl class="row">
+                            <dt class="col-sm-4">Müşteri:</dt>
+                            <dd class="col-sm-8">@Html.DisplayFor(model => model.MusteriAdi)</dd>
+
+                            <dt class="col-sm-4">Başlangıç:</dt>
+                            <dd class="col-sm-8">@Html.DisplayFor(model => model.BaslangicTarihi)</dd>
+
+                            <dt class="col-sm-4">Bitiş:</dt>
+                            <dd class="col-sm-8">
+                                @if (Model.BitisTarihi.HasValue)
+                                {
+                                    @Html.DisplayFor(model => model.BitisTarihi)
+                                }
+                                else
+                                {
+                                    <span class="text-muted">Belirtilmemiş</span>
+                                }
+                            </dd>
+
+                            <dt class="col-sm-4">Bütçe:</dt>
+                            <dd class="col-sm-8">@Model.Butce.ToString("C", new System.Globalization.CultureInfo("tr-TR"))</dd>
+                        </dl>
+                    </div>
+                    <div class="col-md-6">
+                        <dl class="row">
+                            <dt class="col-sm-4">Oluşturulma:</dt>
+                            <dd class="col-sm-8">@Html.DisplayFor(model => model.OlusturulmaTarihi)</dd>
+
+                            @if (!string.IsNullOrEmpty(Model.Adres))
+                            {
+                                <dt class="col-sm-4">Adres:</dt>
+                                <dd class="col-sm-8">@Html.DisplayFor(model => model.Adres)</dd>
+                            }
+                        </dl>
+                    </div>
+                </div>
+
+                @if (!string.IsNullOrEmpty(Model.Aciklama))
+                {
+                    <hr>
+                    <h6>Açıklama:</h6>
+                    <p>@Html.DisplayFor(model => model.Aciklama)</p>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h6><i class="bi bi-gear"></i> İşlemler</h6>
+            </div>
+            <div class="card-body">
+                <div class="d-grid gap-2">
+                    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-warning">
+                        <i class="bi bi-pencil"></i> Düzenle
+                    </a>
+                    <a asp-controller="MaliyetKalemi" asp-action="Index" asp-route-projeId="@Model?.Id" class="btn btn-info">
+                        <i class="bi bi-list-ul"></i> Maliyet Kalemleri
+                    </a>
+                    <a asp-controller="Hakedis" asp-action="Index" asp-route-projeId="@Model?.Id" class="btn btn-primary">
+                        <i class="bi bi-receipt"></i> Hakediş İşlemleri
+                    </a>
+                    <hr>
+                    <a asp-action="Index" class="btn btn-secondary">
+                        <i class="bi bi-arrow-left"></i> Proje Listesi
+                    </a>
+                    <a asp-action="Delete" asp-route-id="@Model?.Id" class="btn btn-outline-danger">
+                        <i class="bi bi-trash"></i> Sil
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        @if (Model.MaliyetKalemleri?.Any() == true)
+        {
+            <div class="card mt-3">
+                <div class="card-header">
+                    <h6><i class="bi bi-calculator"></i> Maliyet Özeti</h6>
+                </div>
+                <div class="card-body">
+                    <p class="mb-1">
+                        <strong>Toplam Kalem:</strong> @Model.MaliyetKalemleri.Count()
+                    </p>
+                    <p class="mb-0">
+                        <strong>Toplam Maliyet:</strong> 
+                        @Model.MaliyetKalemleri.Sum(m => m.ToplamTutar).ToString("C", new System.Globalization.CultureInfo("tr-TR"))
+                    </p>
+                </div>
+            </div>
+        }
+
+        @if (Model.Hakedisler?.Any() == true)
+        {
+            <div class="card mt-3">
+                <div class="card-header">
+                    <h6><i class="bi bi-receipt"></i> Hakediş Özeti</h6>
+                </div>
+                <div class="card-body">
+                    <p class="mb-1">
+                        <strong>Toplam Hakediş:</strong> @Model.Hakedisler.Count()
+                    </p>
+                    <p class="mb-0">
+                        <strong>Toplam Tutar:</strong> 
+                        @Model.Hakedisler.Sum(h => h.ToplamTutar).ToString("C", new System.Globalization.CultureInfo("tr-TR"))
+                    </p>
+                </div>
+            </div>
+        }
+    </div>
+</div>

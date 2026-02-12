@@ -1,0 +1,154 @@
+@model IEnumerable<HakedisYonetimSistemi.Models.Proje>
+
+@{
+    ViewData["Title"] = "Projeler";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1><i class="bi bi-folder"></i> Projeler</h1>
+    <a asp-action="Create" class="btn btn-primary">
+        <i class="bi bi-plus-circle"></i> Yeni Proje
+    </a>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        @if (Model.Any())
+        {
+            <div class="table-responsive">
+                <table id="projelerTable" class="table table-hover table-striped">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Proje Adı</th>
+                            <th>Müşteri</th>
+                            <th>Başlangıç Tarihi</th>
+                            <th>Bitiş Tarihi</th>
+                            <th data-type="num">Bütçe</th>
+                            <th>Durum</th>
+                            <th>İşlemler</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <strong>@Html.DisplayFor(modelItem => item.ProjeAdi)</strong>
+                                    @if (!string.IsNullOrEmpty(item.Aciklama))
+                                    {
+                                        <br><small class="text-muted">@item.Aciklama</small>
+                                    }
+                                </td>
+                                <td>@Html.DisplayFor(modelItem => item.MusteriAdi)</td>
+                                <td data-sort="@item.BaslangicTarihi.ToString("yyyy-MM-dd")">@item.BaslangicTarihi.ToString("dd.MM.yyyy")</td>
+                                <td data-sort="@(item.BitisTarihi?.ToString("yyyy-MM-dd") ?? "")">
+                                    @if (item.BitisTarihi.HasValue)
+                                    {
+                                        @item.BitisTarihi.Value.ToString("dd.MM.yyyy")
+                                    }
+                                    else
+                                    {
+                                        <span class="text-muted">-</span>
+                                    }
+                                </td>
+                                <td data-sort="@item.Butce.ToString().Replace(",", ".")">@item.Butce.ToString("C", new System.Globalization.CultureInfo("tr-TR"))</td>
+                                <td>
+                                    <span class="badge bg-@(item.Durum == HakedisYonetimSistemi.Models.ProjeDurum.Aktif ? "success" : 
+                                                          item.Durum == HakedisYonetimSistemi.Models.ProjeDurum.Beklemede ? "warning" : 
+                                                          item.Durum == HakedisYonetimSistemi.Models.ProjeDurum.Tamamlandi ? "primary" : "secondary")">
+                                        @Html.DisplayFor(modelItem => item.Durum)
+                                    </span>
+                                </td>
+                                <td>
+                                    <div class="btn-group" role="group">
+                                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-info" title="Detaylar">
+                                            <i class="bi bi-eye"></i>
+                                        </a>
+                                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-warning" title="Düzenle">
+                                            <i class="bi bi-pencil"></i>
+                                        </a>
+                                        <a asp-controller="MaliyetKalemi" asp-action="Index" asp-route-projeId="@item.Id" class="btn btn-sm btn-outline-secondary" title="Maliyet Kalemleri">
+                                            <i class="bi bi-list-ul"></i>
+                                        </a>
+                                        <a asp-controller="Hakedis" asp-action="Index" asp-route-projeId="@item.Id" class="btn btn-sm btn-outline-primary" title="Hakediş İşlemleri">
+                                            <i class="bi bi-receipt"></i>
+                                        </a>
+                                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-outline-danger" title="Sil">
+                                            <i class="bi bi-trash"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+        else
+        {
+            <div class="text-center py-5">
+                <i class="bi bi-folder-x display-1 text-muted"></i>
+                <h4 class="mt-3">Henüz proje bulunmuyor</h4>
+                <p class="text-muted">İlk projenizi oluşturmak için "Yeni Proje" butonuna tıklayın.</p>
+                <a asp-action="Create" class="btn btn-primary">
+                    <i class="bi bi-plus-circle"></i> Yeni Proje Oluştur
+                </a>
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+<script>
+    $(document).ready(function () {
+        $('#projelerTable').DataTable({
+            language: {
+                url: '//cdn.datatables.net/plug-ins/1.13.7/i18n/tr.json'
+            },
+            responsive: true,
+            dom: '<"row mb-3"<"col-md-6"B><"col-md-6"f>>rtip',
+            buttons: [
+                {
+                    extend: 'excel',
+                    text: '<i class="bi bi-file-earmark-spreadsheet"></i> Excel',
+                    className: 'btn btn-sm btn-success',
+                    filename: 'Projeler_' + new Date().toLocaleDateString('tr-TR')
+                },
+                {
+                    extend: 'pdf',
+                    text: '<i class="bi bi-file-earmark-pdf"></i> PDF',
+                    className: 'btn btn-sm btn-danger',
+                    filename: 'Projeler_' + new Date().toLocaleDateString('tr-TR')
+                },
+                {
+                    extend: 'print',
+                    text: '<i class="bi bi-printer"></i> Yazdır',
+                    className: 'btn btn-sm btn-info'
+                },
+                {
+                    text: '<i class="bi bi-arrow-clockwise"></i> Yenile',
+                    className: 'btn btn-sm btn-secondary',
+                    action: function () {
+                        location.reload();
+                    }
+                }
+            ],
+            pageLength: 10,
+            columnDefs: [
+                {
+                    targets: -1,
+                    orderable: false,
+                    searchable: false
+                }
+            ],
+            order: [[0, 'asc']],
+            drawCallback: function () {
+                // Responsive ayarlamalar
+                if ($(window).width() < 768) {
+                    $('#projelerTable').DataTable().columns.adjust().responsive.recalc();
+                }
+            }
+        });
+    });
+</script>
+}

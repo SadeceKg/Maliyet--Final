@@ -1,0 +1,99 @@
+@model HakedisYonetimSistemi.Models.Proje
+
+@{
+    ViewData["Title"] = "Proje Sil";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card border-danger">
+            <div class="card-header bg-danger text-white">
+                <h4><i class="bi bi-exclamation-triangle"></i> Proje Silme Onayı</h4>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-warning">
+                    <i class="bi bi-exclamation-triangle"></i>
+                    <strong>Dikkat!</strong> Bu işlem geri alınamaz. Proje silindiğinde tüm ilişkili veriler de silinecektir.
+                </div>
+
+                <h5>Silinecek Proje:</h5>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <dl class="row">
+                                    <dt class="col-sm-4">Proje Adı:</dt>
+                                    <dd class="col-sm-8"><strong>@Html.DisplayFor(model => model.ProjeAdi)</strong></dd>
+
+                                    <dt class="col-sm-4">Müşteri:</dt>
+                                    <dd class="col-sm-8">@Html.DisplayFor(model => model.MusteriAdi)</dd>
+
+                                    <dt class="col-sm-4">Durum:</dt>
+                                    <dd class="col-sm-8">
+                                        <span class="badge bg-@(Model.Durum == HakedisYonetimSistemi.Models.ProjeDurum.Aktif ? "success" : 
+                                                              Model.Durum == HakedisYonetimSistemi.Models.ProjeDurum.Beklemede ? "warning" : 
+                                                              Model.Durum == HakedisYonetimSistemi.Models.ProjeDurum.Tamamlandi ? "primary" : "secondary")">
+                                            @Html.DisplayFor(model => model.Durum)
+                                        </span>
+                                    </dd>
+                                </dl>
+                            </div>
+                            <div class="col-md-6">
+                                <dl class="row">
+                                    <dt class="col-sm-4">Başlangıç:</dt>
+                                    <dd class="col-sm-8">@Html.DisplayFor(model => model.BaslangicTarihi)</dd>
+
+                                    <dt class="col-sm-4">Bütçe:</dt>
+                                    <dd class="col-sm-8">@Model.Butce.ToString("C", new System.Globalization.CultureInfo("tr-TR"))</dd>
+
+                                    <dt class="col-sm-4">Oluşturulma:</dt>
+                                    <dd class="col-sm-8">@Html.DisplayFor(model => model.OlusturulmaTarihi)</dd>
+                                </dl>
+                            </div>
+                        </div>
+
+                        @if (!string.IsNullOrEmpty(Model.Aciklama))
+                        {
+                            <hr>
+                            <p><strong>Açıklama:</strong> @Html.DisplayFor(model => model.Aciklama)</p>
+                        }
+                    </div>
+                </div>
+
+                @if (Model.MaliyetKalemleri?.Any() == true || Model.Hakedisler?.Any() == true)
+                {
+                    <div class="alert alert-danger mt-3">
+                        <h6><i class="bi bi-exclamation-circle"></i> Silinecek İlişkili Veriler:</h6>
+                        <ul class="mb-0">
+                            @if (Model.MaliyetKalemleri?.Any() == true)
+                            {
+                                <li><strong>@Model.MaliyetKalemleri.Count() adet</strong> maliyet kalemi</li>
+                            }
+                            @if (Model.Hakedisler?.Any() == true)
+                            {
+                                <li><strong>@Model.Hakedisler.Count() adet</strong> hakediş kaydı</li>
+                            }
+                        </ul>
+                    </div>
+                }
+
+                <form asp-action="Delete" class="mt-4">
+                    <input type="hidden" asp-for="Id" />
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <a asp-action="Index" class="btn btn-secondary">
+                                <i class="bi bi-arrow-left"></i> İptal
+                            </a>
+                            <a asp-action="Details" asp-route-id="@Model.Id" class="btn btn-info">
+                                <i class="bi bi-eye"></i> Detaylar
+                            </a>
+                        </div>
+                        <button type="submit" class="btn btn-danger">
+                            <i class="bi bi-trash"></i> Evet, Sil
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

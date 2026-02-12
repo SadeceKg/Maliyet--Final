@@ -1,0 +1,115 @@
+@model HakedisYonetimSistemi.Models.Proje
+
+@{
+    ViewData["Title"] = "Yeni Proje";
+}
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h4><i class="bi bi-plus-circle"></i> Yeni Proje Oluştur</h4>
+            </div>
+            <div class="card-body">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group mb-3">
+                                <label asp-for="ProjeAdi" class="form-label">Proje Adı</label>
+                                <input asp-for="ProjeAdi" class="form-control" placeholder="Proje adını giriniz" />
+                                <span asp-validation-for="ProjeAdi" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group mb-3">
+                                <label asp-for="MusteriAdi" class="form-label">Müşteri Adı</label>
+                                <input asp-for="MusteriAdi" class="form-control" placeholder="Müşteri adını giriniz" />
+                                <span asp-validation-for="MusteriAdi" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Aciklama" class="form-label">Açıklama</label>
+                        <textarea asp-for="Aciklama" class="form-control" rows="3" placeholder="Proje açıklaması (isteğe bağlı)"></textarea>
+                        <span asp-validation-for="Aciklama" class="text-danger"></span>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group mb-3">
+                                <label asp-for="BaslangicTarihi" class="form-label">Başlangıç Tarihi</label>
+                                <input asp-for="BaslangicTarihi" class="form-control" type="date" />
+                                <span asp-validation-for="BaslangicTarihi" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group mb-3">
+                                <label asp-for="BitisTarihi" class="form-label">Bitiş Tarihi</label>
+                                <input asp-for="BitisTarihi" class="form-control" type="date" />
+                                <span asp-validation-for="BitisTarihi" class="text-danger"></span>
+                                <div class="form-text">İsteğe bağlı</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group mb-3">
+                                <label asp-for="Butce" class="form-label">Bütçe (₺)</label>
+                                <input asp-for="Butce" class="form-control" type="number" step="0.01" min="0" placeholder="0,00" />
+                                <span asp-validation-for="Butce" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group mb-3">
+                                <label asp-for="Durum" class="form-label">Durum</label>
+                                <select asp-for="Durum" class="form-select" asp-items="Html.GetEnumSelectList<HakedisYonetimSistemi.Models.ProjeDurum>()">
+                                    <option value="">Durum seçiniz</option>
+                                </select>
+                                <span asp-validation-for="Durum" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Adres" class="form-label">Adres</label>
+                        <textarea asp-for="Adres" class="form-control" rows="2" placeholder="Proje adresi (isteğe bağlı)"></textarea>
+                        <span asp-validation-for="Adres" class="text-danger"></span>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <a asp-action="Index" class="btn btn-secondary">
+                            <i class="bi bi-arrow-left"></i> Geri Dön
+                        </a>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-check-circle"></i> Proje Oluştur
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h6><i class="bi bi-info-circle"></i> Bilgi</h6>
+            </div>
+            <div class="card-body">
+                <p class="small text-muted">
+                    <strong>Proje Oluşturma:</strong><br>
+                    • Proje adı ve müşteri adı zorunludur<br>
+                    • Başlangıç tarihi belirtilmelidir<br>
+                    • Bitiş tarihi isteğe bağlıdır<br>
+                    • Bütçe 0 veya pozitif olmalıdır
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

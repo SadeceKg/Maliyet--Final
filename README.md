@@ -1,2 +1,1 @@
-# Maliyet--Final
-Bitirme projem
+# Maliyet

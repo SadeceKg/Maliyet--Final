@@ -1,0 +1,250 @@
+@model HakedisYonetimSistemi.Models.Hakedis
+
+@{
+    ViewData["Title"] = $"Hakediş #{Model.HakedisNo}";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1><i class="bi bi-receipt-cutoff"></i> @Model.HakedisNo Detayları</h1>
+    <a asp-action="Index" class="btn btn-outline-secondary">
+        <i class="bi bi-arrow-left"></i> Geri Dön
+    </a>
+</div>
+
+<!-- DURUM BAHARAT -->
+<div class="alert alert-info d-flex justify-content-between align-items-center mb-4">
+    <div>
+        <strong>Durum:</strong>
+        @{
+            string durumBadge = "bg-secondary";
+            string durumIcon = "⏳";
+            switch (Model.Durum)
+            {
+                case HakedisDurum.Hazirlaniyor:
+                    durumBadge = "bg-secondary";
+                    durumIcon = "📝";
+                    break;
+                case HakedisDurum.Onayda:
+                    durumBadge = "bg-warning";
+                    durumIcon = "⏳";
+                    break;
+                case HakedisDurum.Onaylandi:
+                    durumBadge = "bg-info";
+                    durumIcon = "✅";
+                    break;
+                case HakedisDurum.Odendi:
+                    durumBadge = "bg-success";
+                    durumIcon = "💰";
+                    break;
+                case HakedisDurum.Reddedildi:
+                    durumBadge = "bg-danger";
+                    durumIcon = "❌";
+                    break;
+            }
+        }
+        <span class="badge @durumBadge">@durumIcon @Model.Durum</span>
+    </div>
+    @if (Model.Durum == HakedisDurum.Hazirlaniyor || Model.Durum == HakedisDurum.Onayda)
+    {
+        <div>
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-sm btn-warning">
+                <i class="bi bi-pencil"></i> Düzenle
+            </a>
+            <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-sm btn-danger">
+                <i class="bi bi-trash"></i> Sil
+            </a>
+        </div>
+    }
+</div>
+
+<div class="row">
+    <!-- SOL KOLON: GENEL BİLGİLER -->
+    <div class="col-md-6">
+        <div class="card mb-4">
+            <div class="card-header bg-light">
+                <h6><i class="bi bi-info-circle"></i> Genel Bilgiler</h6>
+            </div>
+            <div class="card-body">
+                <table class="table table-sm table-borderless">
+                    <tr>
+                        <td><strong>Hakediş No:</strong></td>
+                        <td>@Model.HakedisNo</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tarih:</strong></td>
+                        <td>@Model.HakedisTarihi.ToString("dd MMMM yyyy")</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Proje:</strong></td>
+                        <td>
+                            <a asp-controller="Proje" asp-action="Details" asp-route-id="@Model.ProjeId">
+                                @Model.Proje?.ProjeAdi
+                            </a>
+                        </td>
+                    </tr>
+                    @if (!string.IsNullOrEmpty(Model.Aciklama))
+                    {
+                        <tr>
+                            <td colspan="2">
+                                <strong>Açıklama:</strong><br />
+                                <small>@Model.Aciklama</small>
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- SAĞ KOLON: DÖNEM VE TARİHLER -->
+    <div class="col-md-6">
+        <div class="card mb-4">
+            <div class="card-header bg-light">
+                <h6><i class="bi bi-calendar"></i> Dönem Bilgileri</h6>
+            </div>
+            <div class="card-body">
+                <table class="table table-sm table-borderless">
+                    <tr>
+                        <td><strong>Dönem Başlangıç:</strong></td>
+                        <td>@Model.DonemBaslangic.ToString("dd.MM.yyyy")</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Dönem Bitiş:</strong></td>
+                        <td>@Model.DonemBitis.ToString("dd.MM.yyyy")</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Oluşturulma Tarihi:</strong></td>
+                        <td>@Model.OlusturulmaTarihi.ToString("dd.MM.yyyy HH:mm")</td>
+                    </tr>
+                    @if (Model.OnayTarihi.HasValue)
+                    {
+                        <tr>
+                            <td><strong>Onay Tarihi:</strong></td>
+                            <td>@Model.OnayTarihi.Value.ToString("dd.MM.yyyy HH:mm")</td>
+                        </tr>
+                    }
+                    @if (Model.OdemeTarihi.HasValue)
+                    {
+                        <tr>
+                            <td><strong>Ödeme Tarihi:</strong></td>
+                            <td>@Model.OdemeTarihi.Value.ToString("dd.MM.yyyy HH:mm")</td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- DETAY KALEMLERI -->
+<div class="card mb-4">
+    <div class="card-header bg-light">
+        <h6><i class="bi bi-list-check"></i> Yapılan İşler (@Model.HakedisDetaylari?.Count ?? 0)</h6>
+    </div>
+    <div class="card-body">
+        @if (Model.HakedisDetaylari != null && Model.HakedisDetaylari.Count > 0)
+        {
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Yapılan İş Adı</th>
+                            <th class="text-end">Miktar</th>
+                            <th class="text-end">Birim Fiyat (₺)</th>
+                            <th class="text-end">Toplam (₺)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            decimal totalAmount = 0;
+                        }
+                        @foreach (var detay in Model.HakedisDetaylari)
+                        {
+                            totalAmount += detay.ToplamTutar;
+                            <tr>
+                                <td>
+                                    <strong>@detay.Aciklama</strong>
+                                </td>
+                                <td class="text-end">@detay.Miktar.ToString("F2")</td>
+                                <td class="text-end">@detay.BirimFiyat.ToString("C2")</td>
+                                <td class="text-end"><strong>@detay.ToplamTutar.ToString("C2")</strong></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-warning">
+                <i class="bi bi-exclamation-circle"></i> Bu hakediş'e ait kalem bulunmamaktadır.
+            </div>
+        }
+    </div>
+</div>
+
+<!-- ÖZET BİLGİLER -->
+<div class="row">
+    <div class="col-md-6 offset-md-6">
+        <div class="card">
+            <div class="card-header bg-light">
+                <h6><i class="bi bi-calculator"></i> Finansal Özet</h6>
+            </div>
+            <div class="card-body">
+                <div class="row mb-2">
+                    <div class="col-8"><strong>Ara Toplam (₺):</strong></div>
+                    <div class="col-4 text-end">@Model.HakedisTutari.ToString("C2")</div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-8"><strong>KDV (@Model.KdvOrani%):</strong></div>
+                    <div class="col-4 text-end">@(Model.HakedisTutari * Model.KdvOrani / 100).ToString("C2")</div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-8"><h5><strong>Genel Toplam (₺):</strong></h5></div>
+                    <div class="col-4 text-end"><h5 class="text-success"><strong>@Model.ToplamTutar.ToString("C2")</strong></h5></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- İŞLEMLER (Durum Tabanlı) -->
+@if (Model.Durum == HakedisDurum.Onayda)
+{
+    <div class="mt-4 text-center">
+        <form asp-action="Onayla" asp-route-id="@Model.Id" method="post" style="display: inline;">
+            @Html.AntiForgeryToken()
+            <button type="submit" class="btn btn-success me-2" onclick="return confirm('Bu hakediş'i onaylıyor musunuz?');">
+                <i class="bi bi-check-circle"></i> Onayla
+            </button>
+        </form>
+        <form asp-action="Reddet" asp-route-id="@Model.Id" method="post" style="display: inline;">
+            @Html.AntiForgeryToken()
+            <button type="submit" class="btn btn-danger" onclick="return confirm('Bu hakediş'i reddetmek istediğinizden emin misiniz?');">
+                <i class="bi bi-x-circle"></i> Reddet
+            </button>
+        </form>
+    </div>
+}
+
+<!-- YAZDIRMA -->
+<div class="mt-4 text-center">
+    <button type="button" class="btn btn-outline-primary" onclick="window.print();">
+        <i class="bi bi-printer"></i> Yazdır / PDF Olarak Kaydet
+    </button>
+</div>
+
+@section Scripts {
+<style>
+    @@media print {
+        .btn, a[asp-action="Index"], a[asp-action="Edit"], a[asp-action="Delete"],
+        .d-flex, form[asp-action="Onayla"], form[asp-action="Reddet"] {
+            display: none !important;
+        }
+        body {
+            font-size: 12pt;
+        }
+    }
+</style>
+}

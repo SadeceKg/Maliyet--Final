@@ -1,0 +1,188 @@
+@model HakedisYonetimSistemi.Models.MaliyetKalemi
+
+@{
+    ViewData["Title"] = "Yeni Maliyet Kalemi";
+    var projeId = ViewBag.ProjeId as int?;
+    var projeAdi = ViewBag.ProjeAdi as string;
+}
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h4><i class="bi bi-plus-circle"></i> Yeni Maliyet Kalemi Oluştur</h4>
+                @if (!string.IsNullOrEmpty(projeAdi))
+                {
+                    <p class="mb-0 text-muted">Proje: <strong>@projeAdi</strong></p>
+                }
+            </div>
+            <div class="card-body">
+                <form asp-action="Create" method="post">
+                    @Html.AntiForgeryToken()
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    
+                    @if (projeId.HasValue)
+                    {
+                        <input type="hidden" asp-for="ProjeId" value="@projeId" />
+                    }
+                    else
+                    {
+                        <div class="form-group mb-3">
+                            <label asp-for="ProjeId" class="form-label">Proje</label>
+                            <select asp-for="ProjeId" class="form-select" asp-items="ViewBag.ProjeId">
+                                <option value="">Proje seçiniz</option>
+                            </select>
+                            <span asp-validation-for="ProjeId" class="text-danger"></span>
+                        </div>
+                    }
+                    
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="form-group mb-3">
+                                <label asp-for="KalemAdi" class="form-label">Kalem Adı</label>
+                                <input asp-for="KalemAdi" class="form-control" placeholder="Maliyet kalemi adını giriniz" />
+                                <span asp-validation-for="KalemAdi" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group mb-3">
+                                <label asp-for="Kategori" class="form-label">Kategori</label>
+                                <select asp-for="Kategori" class="form-select" asp-items="Html.GetEnumSelectList<HakedisYonetimSistemi.Models.MaliyetKategori>()">
+                                    <option value="">Kategori seçiniz</option>
+                                </select>
+                                <span asp-validation-for="Kategori" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Aciklama" class="form-label">Açıklama</label>
+                        <textarea asp-for="Aciklama" class="form-control" rows="2" placeholder="Maliyet kalemi açıklaması (isteğe bağlı)"></textarea>
+                        <span asp-validation-for="Aciklama" class="text-danger"></span>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group mb-3">
+                                <label asp-for="Birim" class="form-label">Birim</label>
+                                <input asp-for="Birim" class="form-control" placeholder="m², adet, kg vb." />
+                                <span asp-validation-for="Birim" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group mb-3">
+                                <label asp-for="BirimFiyat" class="form-label">Birim Fiyat (₺)</label>
+                                <input asp-for="BirimFiyat" class="form-control" type="number" step="0.01" min="0.01" placeholder="0,00" />
+                                <span asp-validation-for="BirimFiyat" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group mb-3">
+                                <label asp-for="ToplamMiktar" class="form-label">Toplam Miktar</label>
+                                <input asp-for="ToplamMiktar" class="form-control" type="number" step="0.001" min="0.001" placeholder="0,000" />
+                                <span asp-validation-for="ToplamMiktar" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group mb-3">
+                                <label class="form-label">Toplam Tutar</label>
+                                <input type="text" class="form-control" id="toplamTutar" readonly placeholder="Otomatik hesaplanır" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-check mb-3">
+                        <input asp-for="Aktif" class="form-check-input" type="checkbox" />
+                        <label asp-for="Aktif" class="form-check-label">
+                            Aktif
+                        </label>
+                        <div class="form-text">Pasif kalemler hesaplamalara dahil edilmez</div>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            @if (projeId.HasValue)
+                            {
+                                <a asp-action="Index" asp-route-projeId="@projeId" class="btn btn-secondary">
+                                    <i class="bi bi-arrow-left"></i> Geri Dön
+                                </a>
+                            }
+                            else
+                            {
+                                <a asp-action="Index" class="btn btn-secondary">
+                                    <i class="bi bi-arrow-left"></i> Geri Dön
+                                </a>
+                            }
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-check-circle"></i> Maliyet Kalemi Oluştur
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h6><i class="bi bi-info-circle"></i> Bilgi</h6>
+            </div>
+            <div class="card-body">
+                <p class="small text-muted">
+                    <strong>Maliyet Kalemi Oluşturma:</strong><br>
+                    • Kalem adı zorunludur<br>
+                    • Birim ve birim fiyat belirtilmelidir<br>
+                    • Toplam miktar 0'dan büyük olmalıdır<br>
+                    • Toplam tutar otomatik hesaplanır<br>
+                    • Pasif kalemler hesaplamalara dahil edilmez
+                </p>
+            </div>
+        </div>
+
+        <div class="card mt-3">
+            <div class="card-header">
+                <h6><i class="bi bi-calculator"></i> Hesaplama</h6>
+            </div>
+            <div class="card-body">
+                <p class="small text-muted">
+                    <strong>Toplam Tutar = Birim Fiyat × Toplam Miktar</strong>
+                </p>
+                <div id="hesaplamaOrnek" class="small text-muted">
+                    Örnek: 100 ₺/m² × 50 m² = 5.000 ₺
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    
+    <script>
+        $(document).ready(function() {
+            function hesaplaToplam() {
+                var birimFiyat = parseFloat($('#BirimFiyat').val()) || 0;
+                var toplamMiktar = parseFloat($('#ToplamMiktar').val()) || 0;
+                var toplam = birimFiyat * toplamMiktar;
+                
+                $('#toplamTutar').val(toplam.toLocaleString('tr-TR', {
+                    style: 'currency',
+                    currency: 'TRY'
+                }));
+                
+                if (birimFiyat > 0 && toplamMiktar > 0) {
+                    $('#hesaplamaOrnek').html(
+                        birimFiyat.toLocaleString('tr-TR', {style: 'currency', currency: 'TRY'}) + 
+                        ' × ' + toplamMiktar.toLocaleString('tr-TR') + 
+                        ' = ' + toplam.toLocaleString('tr-TR', {style: 'currency', currency: 'TRY'})
+                    );
+                }
+            }
+            
+            $('#BirimFiyat, #ToplamMiktar').on('input', hesaplaToplam);
+            
+            // Sayfa yüklendiğinde hesapla
+            hesaplaToplam();
+        });
+    </script>
+}

@@ -1,0 +1,279 @@
+@model HakedisYonetimSistemi.Models.Hakedis
+
+@{
+    ViewData["Title"] = "Yeni Hakediş";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1><i class="bi bi-receipt"></i> Yeni Hakediş Oluştur</h1>
+    <a asp-action="Index" asp-route-projeId="@Model.ProjeId" class="btn btn-outline-secondary">
+        <i class="bi bi-arrow-left"></i> Geri Dön
+    </a>
+</div>
+
+<form asp-action="Create" method="post" id="hakedisForm">
+    <div class="row">
+        <!-- SOL KOLON: Genel Bilgiler -->
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h6><i class="bi bi-info-circle"></i> Genel Bilgiler</h6>
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label asp-for="HakedisNo" class="form-label"></label>
+                        <input asp-for="HakedisNo" class="form-control" placeholder="Örn: 2024-001" />
+                        <span asp-validation-for="HakedisNo" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="HakedisTarihi" class="form-label"></label>
+                        <input asp-for="HakedisTarihi" class="form-control" type="date" />
+                        <span asp-validation-for="HakedisTarihi" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="ProjeId" class="form-label"></label>
+                        <select asp-for="ProjeId" class="form-select" id="projeSelect">
+                            <option value="">-- Proje Seçin --</option>
+                            @if (ViewBag.Projeler != null)
+                            {
+                                @foreach (var proje in ViewBag.Projeler)
+                                {
+                                    <option value="@proje.Id" selected="@(Model.ProjeId == proje.Id ? "selected" : null)">@proje.ProjeAdi</option>
+                                }
+                            }
+                        </select>
+                        <span asp-validation-for="ProjeId" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Aciklama" class="form-label"></label>
+                        <textarea asp-for="Aciklama" class="form-control" rows="3" placeholder="Açıklama (isteğe bağlı)"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SAĞ KOLON: Dönem ve KDV -->
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h6><i class="bi bi-calendar2"></i> Dönem Bilgileri</h6>
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label asp-for="DonemBaslangic" class="form-label"></label>
+                        <input asp-for="DonemBaslangic" class="form-control" type="date" />
+                        <span asp-validation-for="DonemBaslangic" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="DonemBitis" class="form-label"></label>
+                        <input asp-for="DonemBitis" class="form-control" type="date" />
+                        <span asp-validation-for="DonemBitis" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="KdvOrani" class="form-label"></label>
+                        <div class="input-group">
+                            <input asp-for="KdvOrani" class="form-control" type="number" step="0.01" min="0" max="100" id="kdvOrani" />
+                            <span class="input-group-text">%</span>
+                        </div>
+                        <span asp-validation-for="KdvOrani" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DETAY KALEMLERİ (Dinamik Tablo) -->
+    <div class="card mb-4">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <h6><i class="bi bi-list-check"></i> Yapılan İşler</h6>
+            <button type="button" class="btn btn-sm btn-success" id="addRowBtn">
+                <i class="bi bi-plus"></i> Satır Ekle
+            </button>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-striped" id="detayTable">
+                    <thead class="table-dark">
+                        <tr>
+                            <th style="width: 35%;">Yapılan İş Adı</th>
+                            <th style="width: 15%;">Miktar</th>
+                            <th style="width: 15%;">Birim</th>
+                            <th style="width: 20%;">Birim Fiyat (₺)</th>
+                            <th style="width: 15%;">Toplam (₺)</th>
+                            <th style="width: 10%; text-align: center;">İşlem</th>
+                        </tr>
+                    </thead>
+                    <tbody id="detayBody">
+                        <tr class="detay-row">
+                            <td>
+                                <input type="text" class="form-control detay-adin" name="HakedisDetaylari[0].Aciklama" placeholder="Örn: Duvar örülmesi" />
+                            </td>
+                            <td>
+                                <input type="number" class="form-control detay-miktar" name="HakedisDetaylari[0].Miktar" placeholder="0.00" step="0.01" min="0" />
+                            </td>
+                            <td>
+                                <input type="text" class="form-control detay-birim" name="HakedisDetaylari[0].BirimFiyat" placeholder="m2, adet, saat" />
+                            </td>
+                            <td>
+                                <input type="number" class="form-control detay-birimfiyat" name="HakedisDetaylari[0].BirimFiyat" placeholder="0.00" step="0.01" min="0" />
+                            </td>
+                            <td>
+                                <input type="text" class="form-control detay-toplam" readonly />
+                            </td>
+                            <td style="text-align: center;">
+                                <button type="button" class="btn btn-sm btn-danger delete-row-btn">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- ÖZET BİLGİLER -->
+    <div class="row">
+        <div class="col-md-6 offset-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row mb-2">
+                        <div class="col-8"><strong>Ara Toplam (₺):</strong></div>
+                        <div class="col-4 text-end"><span id="araToplam">0.00</span></div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-8"><strong>KDV (%<span id="kdvYuzde">20</span>):</strong></div>
+                        <div class="col-4 text-end"><span id="kdvTutari">0.00</span></div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-8"><h5><strong>Genel Toplam (₺):</strong></h5></div>
+                        <div class="col-4 text-end"><h5 class="text-success"><strong><span id="genelToplam">0.00</span></strong></h5></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BUTONLAR -->
+    <div class="mt-4 text-end">
+        <a asp-action="Index" asp-route-projeId="@Model.ProjeId" class="btn btn-secondary me-2">
+            <i class="bi bi-x-circle"></i> İptal
+        </a>
+        <button type="submit" class="btn btn-primary">
+            <i class="bi bi-save"></i> Hakediş Kaydet
+        </button>
+    </div>
+</form>
+
+@section Scripts {
+<script>
+    let rowCount = 1;
+
+    // Satır Ekle Butonu
+    $('#addRowBtn').click(function () {
+        const newRow = `
+            <tr class="detay-row">
+                <td>
+                    <input type="text" class="form-control detay-adin" name="HakedisDetaylari[${rowCount}].Aciklama" placeholder="Örn: Duvar örülmesi" />
+                </td>
+                <td>
+                    <input type="number" class="form-control detay-miktar" name="HakedisDetaylari[${rowCount}].Miktar" placeholder="0.00" step="0.01" min="0" />
+                </td>
+                <td>
+                    <input type="text" class="form-control detay-birim" name="HakedisDetaylari[${rowCount}].Birim" placeholder="m2, adet, saat" />
+                </td>
+                <td>
+                    <input type="number" class="form-control detay-birimfiyat" name="HakedisDetaylari[${rowCount}].BirimFiyat" placeholder="0.00" step="0.01" min="0" />
+                </td>
+                <td>
+                    <input type="text" class="form-control detay-toplam" readonly />
+                </td>
+                <td style="text-align: center;">
+                    <button type="button" class="btn btn-sm btn-danger delete-row-btn">
+                        <i class="bi bi-trash"></i>
+                    </button>
+                </td>
+            </tr>
+        `;
+        $('#detayBody').append(newRow);
+        rowCount++;
+    });
+
+    // Satır Sil
+    $(document).on('click', '.delete-row-btn', function () {
+        $(this).closest('tr').remove();
+        updateTotals();
+    });
+
+    // Miktar/Fiyat değiştiğinde toplam güncelle
+    $(document).on('change keyup', '.detay-miktar, .detay-birimfiyat', function () {
+        const row = $(this).closest('tr');
+        const miktar = parseFloat(row.find('.detay-miktar').val()) || 0;
+        const birimFiyat = parseFloat(row.find('.detay-birimfiyat').val()) || 0;
+        const toplam = miktar * birimFiyat;
+        row.find('.detay-toplam').val(toplam.toFixed(2));
+        updateTotals();
+    });
+
+    // KDV Oranı değiştiğinde güncelle
+    $('#kdvOrani').on('change keyup', function () {
+        updateTotals();
+    });
+
+    // Toplam değerleri güncelle
+    function updateTotals() {
+        let araToplam = 0;
+        $('.detay-toplam').each(function () {
+            araToplam += parseFloat($(this).val()) || 0;
+        });
+
+        const kdvOrani = parseFloat($('#kdvOrani').val()) || 0;
+        const kdvTutari = araToplam * (kdvOrani / 100);
+        const genelToplam = araToplam + kdvTutari;
+
+        $('#araToplam').text(araToplam.toFixed(2));
+        $('#kdvYuzde').text(kdvOrani.toFixed(2));
+        $('#kdvTutari').text(kdvTutari.toFixed(2));
+        $('#genelToplam').text(genelToplam.toFixed(2));
+
+        // Hidden input'a değer ata
+        $('input[name="HakedisTutari"]').val(araToplam);
+    }
+
+    // Form gönderilirken
+    $('#hakedisForm').on('submit', function (e) {
+        let detayCount = $('.detay-row').length;
+        if (detayCount === 0) {
+            alert('Lütfen en az bir satır ekleyiniz!');
+            e.preventDefault();
+            return false;
+        }
+
+        // Input isimlerini düzelt
+        let index = 0;
+        $('.detay-row').each(function () {
+            const row = $(this);
+            row.find('input').each(function () {
+                const name = $(this).attr('name');
+                const newName = name.replace(/HakedisDetaylari\[\d+\]/, `HakedisDetaylari[${index}]`);
+                $(this).attr('name', newName);
+            });
+            index++;
+        });
+    });
+
+    // Sayfa açılışında
+    $(document).ready(function () {
+        // Mevcut satırları kontrol et
+        if ($('.detay-row').length === 0) {
+            $('#addRowBtn').click();
+        }
+    });
+</script>
+}
