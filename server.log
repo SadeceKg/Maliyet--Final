@@ -1,0 +1,466 @@
+Building...
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: http://0.0.0.0:12000
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Development
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: /workspace/HakedisYonetimSistemi
+warn: Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware[3]
+      Failed to determine the https port for redirect.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Aciklama", "p"."Adres", "p"."BaslangicTarihi", "p"."BitisTarihi", "p"."Butce", "p"."Durum", "p"."MusteriAdi", "p"."OlusturulmaTarihi", "p"."ProjeAdi"
+      FROM "Projeler" AS "p"
+      WHERE "p"."Durum" = 0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Aciklama", "p"."Adres", "p"."BaslangicTarihi", "p"."BitisTarihi", "p"."Butce", "p"."Durum", "p"."MusteriAdi", "p"."OlusturulmaTarihi", "p"."ProjeAdi"
+      FROM "Projeler" AS "p"
+      WHERE "p"."Durum" = 0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Aciklama", "p"."Adres", "p"."BaslangicTarihi", "p"."BitisTarihi", "p"."Butce", "p"."Durum", "p"."MusteriAdi", "p"."OlusturulmaTarihi", "p"."ProjeAdi"
+      FROM "Projeler" AS "p"
+      WHERE "p"."Durum" = 0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Aciklama", "p"."Adres", "p"."BaslangicTarihi", "p"."BitisTarihi", "p"."Butce", "p"."Durum", "p"."MusteriAdi", "p"."OlusturulmaTarihi", "p"."ProjeAdi"
+      FROM "Projeler" AS "p"
+      WHERE "p"."Durum" = 0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Aciklama", "p"."Adres", "p"."BaslangicTarihi", "p"."BitisTarihi", "p"."Butce", "p"."Durum", "p"."MusteriAdi", "p"."OlusturulmaTarihi", "p"."ProjeAdi"
+      FROM "Projeler" AS "p"
+      WHERE "p"."Durum" = 0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Aciklama", "p"."Adres", "p"."BaslangicTarihi", "p"."BitisTarihi", "p"."Butce", "p"."Durum", "p"."MusteriAdi", "p"."OlusturulmaTarihi", "p"."ProjeAdi"
+      FROM "Projeler" AS "p"
+      WHERE "p"."Durum" = 0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Aciklama", "p"."Adres", "p"."BaslangicTarihi", "p"."BitisTarihi", "p"."Butce", "p"."Durum", "p"."MusteriAdi", "p"."OlusturulmaTarihi", "p"."ProjeAdi"
+      FROM "Projeler" AS "p"
+      WHERE "p"."Durum" = 0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[@__normalizedUserName_0='?' (Size = 16)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+      FROM "AspNetUsers" AS "a"
+      WHERE "a"."NormalizedUserName" = @__normalizedUserName_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (11ms) [Parameters=[@p0='?' (Size = 36), @p1='?' (DbType = Int32), @p2='?' (Size = 36), @p3='?' (Size = 16), @p4='?' (DbType = Boolean), @p5='?' (DbType = Boolean), @p6='?' (DbType = DateTimeOffset), @p7='?' (Size = 16), @p8='?' (Size = 16), @p9='?' (Size = 84), @p10='?', @p11='?' (DbType = Boolean), @p12='?' (Size = 32), @p13='?' (DbType = Boolean), @p14='?' (Size = 16)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "AspNetUsers" ("Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14);
+info: HakedisYonetimSistemi.Areas.Identity.Pages.Account.RegisterModel[0]
+      User created a new account with password.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Id", "a"."ClaimType", "a"."ClaimValue", "a"."UserId"
+      FROM "AspNetUserClaims" AS "a"
+      WHERE "a"."UserId" = @__user_Id_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 36)], CommandType='Text', CommandTimeout='30']
+      SELECT "a0"."Name"
+      FROM "AspNetUserRoles" AS "a"
+      INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+      WHERE "a"."UserId" = @__userId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Aciklama", "p"."Adres", "p"."BaslangicTarihi", "p"."BitisTarihi", "p"."Butce", "p"."Durum", "p"."MusteriAdi", "p"."OlusturulmaTarihi", "p"."ProjeAdi"
+      FROM "Projeler" AS "p"
+      WHERE "p"."Durum" = 0
+warn: Microsoft.EntityFrameworkCore.Query[20504]
+      Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Aciklama", "p"."Adres", "p"."BaslangicTarihi", "p"."BitisTarihi", "p"."Butce", "p"."Durum", "p"."MusteriAdi", "p"."OlusturulmaTarihi", "p"."ProjeAdi", "h"."Id", "h"."Aciklama", "h"."DonemBaslangic", "h"."DonemBitis", "h"."Durum", "h"."HakedisNo", "h"."HakedisTarihi", "h"."HakedisTutari", "h"."KdvOrani", "h"."OdemeTarihi", "h"."OlusturulmaTarihi", "h"."OnayTarihi", "h"."ProjeId", "m"."Id", "m"."Aciklama", "m"."Aktif", "m"."Birim", "m"."BirimFiyat", "m"."KalemAdi", "m"."Kategori", "m"."OlusturulmaTarihi", "m"."ProjeId", "m"."ToplamMiktar"
+      FROM "Projeler" AS "p"
+      LEFT JOIN "Hakedisler" AS "h" ON "p"."Id" = "h"."ProjeId"
+      LEFT JOIN "MaliyetKalemleri" AS "m" ON "p"."Id" = "m"."ProjeId"
+      ORDER BY "p"."Id", "h"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "h"."Id", "h"."Aciklama", "h"."DonemBaslangic", "h"."DonemBitis", "h"."Durum", "h"."HakedisNo", "h"."HakedisTarihi", "h"."HakedisTutari", "h"."KdvOrani", "h"."OdemeTarihi", "h"."OlusturulmaTarihi", "h"."OnayTarihi", "h"."ProjeId", "p"."Id", "p"."Aciklama", "p"."Adres", "p"."BaslangicTarihi", "p"."BitisTarihi", "p"."Butce", "p"."Durum", "p"."MusteriAdi", "p"."OlusturulmaTarihi", "p"."ProjeAdi", "t"."Id", "t"."Aciklama", "t"."BirimFiyat", "t"."HakedisId", "t"."MaliyetKalemiId", "t"."Miktar", "t"."Id0", "t"."Aciklama0", "t"."Aktif", "t"."Birim", "t"."BirimFiyat0", "t"."KalemAdi", "t"."Kategori", "t"."OlusturulmaTarihi", "t"."ProjeId", "t"."ToplamMiktar"
+      FROM "Hakedisler" AS "h"
+      INNER JOIN "Projeler" AS "p" ON "h"."ProjeId" = "p"."Id"
+      LEFT JOIN (
+          SELECT "h0"."Id", "h0"."Aciklama", "h0"."BirimFiyat", "h0"."HakedisId", "h0"."MaliyetKalemiId", "h0"."Miktar", "m"."Id" AS "Id0", "m"."Aciklama" AS "Aciklama0", "m"."Aktif", "m"."Birim", "m"."BirimFiyat" AS "BirimFiyat0", "m"."KalemAdi", "m"."Kategori", "m"."OlusturulmaTarihi", "m"."ProjeId", "m"."ToplamMiktar"
+          FROM "HakedisDetaylari" AS "h0"
+          INNER JOIN "MaliyetKalemleri" AS "m" ON "h0"."MaliyetKalemiId" = "m"."Id"
+      ) AS "t" ON "h"."Id" = "t"."HakedisId"
+      ORDER BY "h"."Id", "p"."Id", "t"."Id"
+fail: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[3]
+      The view 'Index' was not found. Searched locations: /Views/Hakedis/Index.cshtml, /Views/Shared/Index.cshtml, /Pages/Shared/Index.cshtml
+fail: Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware[1]
+      An unhandled exception has occurred while executing the request.
+      System.InvalidOperationException: The view 'Index' was not found. The following locations were searched:
+      /Views/Hakedis/Index.cshtml
+      /Views/Shared/Index.cshtml
+      /Pages/Shared/Index.cshtml
+         at Microsoft.AspNetCore.Mvc.ViewEngines.ViewEngineResult.EnsureSuccessful(IEnumerable`1 originalLocations)
+         at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+         at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+      --- End of stack trace from previous location ---
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+      --- End of stack trace from previous location ---
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+         at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+         at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+         at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+fail: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[3]
+      The view 'Create' was not found. Searched locations: /Views/Hakedis/Create.cshtml, /Views/Shared/Create.cshtml, /Pages/Shared/Create.cshtml
+fail: Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware[1]
+      An unhandled exception has occurred while executing the request.
+      System.InvalidOperationException: The view 'Create' was not found. The following locations were searched:
+      /Views/Hakedis/Create.cshtml
+      /Views/Shared/Create.cshtml
+      /Pages/Shared/Create.cshtml
+         at Microsoft.AspNetCore.Mvc.ViewEngines.ViewEngineResult.EnsureSuccessful(IEnumerable`1 originalLocations)
+         at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+         at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+      --- End of stack trace from previous location ---
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+      --- End of stack trace from previous location ---
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+         at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+         at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+         at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "m"."Id", "m"."Aciklama", "m"."Aktif", "m"."Birim", "m"."BirimFiyat", "m"."KalemAdi", "m"."Kategori", "m"."OlusturulmaTarihi", "m"."ProjeId", "m"."ToplamMiktar", "p"."Id", "p"."Aciklama", "p"."Adres", "p"."BaslangicTarihi", "p"."BitisTarihi", "p"."Butce", "p"."Durum", "p"."MusteriAdi", "p"."OlusturulmaTarihi", "p"."ProjeAdi"
+      FROM "MaliyetKalemleri" AS "m"
+      INNER JOIN "Projeler" AS "p" ON "m"."ProjeId" = "p"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Projeler" AS "p"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Projeler" AS "p"
+      WHERE "p"."Durum" = 0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Hakedisler" AS "h"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Hakedisler" AS "h"
+      WHERE "h"."Durum" = 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "h"."Id", "h"."Aciklama", "h"."DonemBaslangic", "h"."DonemBitis", "h"."Durum", "h"."HakedisNo", "h"."HakedisTarihi", "h"."HakedisTutari", "h"."KdvOrani", "h"."OdemeTarihi", "h"."OlusturulmaTarihi", "h"."OnayTarihi", "h"."ProjeId"
+      FROM "Hakedisler" AS "h"
+      WHERE "h"."Durum" IN (2, 3)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "t"."Id", "t"."Aciklama", "t"."DonemBaslangic", "t"."DonemBitis", "t"."Durum", "t"."HakedisNo", "t"."HakedisTarihi", "t"."HakedisTutari", "t"."KdvOrani", "t"."OdemeTarihi", "t"."OlusturulmaTarihi", "t"."OnayTarihi", "t"."ProjeId", "p"."Id", "p"."Aciklama", "p"."Adres", "p"."BaslangicTarihi", "p"."BitisTarihi", "p"."Butce", "p"."Durum", "p"."MusteriAdi", "p"."OlusturulmaTarihi", "p"."ProjeAdi"
+      FROM (
+          SELECT "h"."Id", "h"."Aciklama", "h"."DonemBaslangic", "h"."DonemBitis", "h"."Durum", "h"."HakedisNo", "h"."HakedisTarihi", "h"."HakedisTutari", "h"."KdvOrani", "h"."OdemeTarihi", "h"."OlusturulmaTarihi", "h"."OnayTarihi", "h"."ProjeId"
+          FROM "Hakedisler" AS "h"
+          ORDER BY "h"."OlusturulmaTarihi" DESC
+          LIMIT @__p_0
+      ) AS "t"
+      INNER JOIN "Projeler" AS "p" ON "t"."ProjeId" = "p"."Id"
+      ORDER BY "t"."OlusturulmaTarihi" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Aciklama", "p"."Adres", "p"."BaslangicTarihi", "p"."BitisTarihi", "p"."Butce", "p"."Durum", "p"."MusteriAdi", "p"."OlusturulmaTarihi", "p"."ProjeAdi", "h"."Id", "h"."Aciklama", "h"."DonemBaslangic", "h"."DonemBitis", "h"."Durum", "h"."HakedisNo", "h"."HakedisTarihi", "h"."HakedisTutari", "h"."KdvOrani", "h"."OdemeTarihi", "h"."OlusturulmaTarihi", "h"."OnayTarihi", "h"."ProjeId", "m"."Id", "m"."Aciklama", "m"."Aktif", "m"."Birim", "m"."BirimFiyat", "m"."KalemAdi", "m"."Kategori", "m"."OlusturulmaTarihi", "m"."ProjeId", "m"."ToplamMiktar"
+      FROM "Projeler" AS "p"
+      LEFT JOIN "Hakedisler" AS "h" ON "p"."Id" = "h"."ProjeId"
+      LEFT JOIN "MaliyetKalemleri" AS "m" ON "p"."Id" = "m"."ProjeId"
+      ORDER BY "p"."Id", "h"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Projeler" AS "p"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Projeler" AS "p"
+      WHERE "p"."Durum" = 0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Hakedisler" AS "h"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Hakedisler" AS "h"
+      WHERE "h"."Durum" = 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "h"."Id", "h"."Aciklama", "h"."DonemBaslangic", "h"."DonemBitis", "h"."Durum", "h"."HakedisNo", "h"."HakedisTarihi", "h"."HakedisTutari", "h"."KdvOrani", "h"."OdemeTarihi", "h"."OlusturulmaTarihi", "h"."OnayTarihi", "h"."ProjeId"
+      FROM "Hakedisler" AS "h"
+      WHERE "h"."Durum" IN (2, 3)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "t"."Id", "t"."Aciklama", "t"."DonemBaslangic", "t"."DonemBitis", "t"."Durum", "t"."HakedisNo", "t"."HakedisTarihi", "t"."HakedisTutari", "t"."KdvOrani", "t"."OdemeTarihi", "t"."OlusturulmaTarihi", "t"."OnayTarihi", "t"."ProjeId", "p"."Id", "p"."Aciklama", "p"."Adres", "p"."BaslangicTarihi", "p"."BitisTarihi", "p"."Butce", "p"."Durum", "p"."MusteriAdi", "p"."OlusturulmaTarihi", "p"."ProjeAdi"
+      FROM (
+          SELECT "h"."Id", "h"."Aciklama", "h"."DonemBaslangic", "h"."DonemBitis", "h"."Durum", "h"."HakedisNo", "h"."HakedisTarihi", "h"."HakedisTutari", "h"."KdvOrani", "h"."OdemeTarihi", "h"."OlusturulmaTarihi", "h"."OnayTarihi", "h"."ProjeId"
+          FROM "Hakedisler" AS "h"
+          ORDER BY "h"."OlusturulmaTarihi" DESC
+          LIMIT @__p_0
+      ) AS "t"
+      INNER JOIN "Projeler" AS "p" ON "t"."ProjeId" = "p"."Id"
+      ORDER BY "t"."OlusturulmaTarihi" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "h"."Id", "h"."Aciklama", "h"."DonemBaslangic", "h"."DonemBitis", "h"."Durum", "h"."HakedisNo", "h"."HakedisTarihi", "h"."HakedisTutari", "h"."KdvOrani", "h"."OdemeTarihi", "h"."OlusturulmaTarihi", "h"."OnayTarihi", "h"."ProjeId", "p"."Id", "p"."Aciklama", "p"."Adres", "p"."BaslangicTarihi", "p"."BitisTarihi", "p"."Butce", "p"."Durum", "p"."MusteriAdi", "p"."OlusturulmaTarihi", "p"."ProjeAdi", "t"."Id", "t"."Aciklama", "t"."BirimFiyat", "t"."HakedisId", "t"."MaliyetKalemiId", "t"."Miktar", "t"."Id0", "t"."Aciklama0", "t"."Aktif", "t"."Birim", "t"."BirimFiyat0", "t"."KalemAdi", "t"."Kategori", "t"."OlusturulmaTarihi", "t"."ProjeId", "t"."ToplamMiktar"
+      FROM "Hakedisler" AS "h"
+      INNER JOIN "Projeler" AS "p" ON "h"."ProjeId" = "p"."Id"
+      LEFT JOIN (
+          SELECT "h0"."Id", "h0"."Aciklama", "h0"."BirimFiyat", "h0"."HakedisId", "h0"."MaliyetKalemiId", "h0"."Miktar", "m"."Id" AS "Id0", "m"."Aciklama" AS "Aciklama0", "m"."Aktif", "m"."Birim", "m"."BirimFiyat" AS "BirimFiyat0", "m"."KalemAdi", "m"."Kategori", "m"."OlusturulmaTarihi", "m"."ProjeId", "m"."ToplamMiktar"
+          FROM "HakedisDetaylari" AS "h0"
+          INNER JOIN "MaliyetKalemleri" AS "m" ON "h0"."MaliyetKalemiId" = "m"."Id"
+      ) AS "t" ON "h"."Id" = "t"."HakedisId"
+      ORDER BY "h"."Id", "p"."Id", "t"."Id"
+fail: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[3]
+      The view 'Index' was not found. Searched locations: /Views/Hakedis/Index.cshtml, /Views/Shared/Index.cshtml, /Pages/Shared/Index.cshtml
+fail: Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware[1]
+      An unhandled exception has occurred while executing the request.
+      System.InvalidOperationException: The view 'Index' was not found. The following locations were searched:
+      /Views/Hakedis/Index.cshtml
+      /Views/Shared/Index.cshtml
+      /Pages/Shared/Index.cshtml
+         at Microsoft.AspNetCore.Mvc.ViewEngines.ViewEngineResult.EnsureSuccessful(IEnumerable`1 originalLocations)
+         at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+         at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+      --- End of stack trace from previous location ---
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+      --- End of stack trace from previous location ---
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+         at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+         at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+         at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "h"."Id", "h"."Aciklama", "h"."DonemBaslangic", "h"."DonemBitis", "h"."Durum", "h"."HakedisNo", "h"."HakedisTarihi", "h"."HakedisTutari", "h"."KdvOrani", "h"."OdemeTarihi", "h"."OlusturulmaTarihi", "h"."OnayTarihi", "h"."ProjeId", "p"."Id", "p"."Aciklama", "p"."Adres", "p"."BaslangicTarihi", "p"."BitisTarihi", "p"."Butce", "p"."Durum", "p"."MusteriAdi", "p"."OlusturulmaTarihi", "p"."ProjeAdi", "t"."Id", "t"."Aciklama", "t"."BirimFiyat", "t"."HakedisId", "t"."MaliyetKalemiId", "t"."Miktar", "t"."Id0", "t"."Aciklama0", "t"."Aktif", "t"."Birim", "t"."BirimFiyat0", "t"."KalemAdi", "t"."Kategori", "t"."OlusturulmaTarihi", "t"."ProjeId", "t"."ToplamMiktar"
+      FROM "Hakedisler" AS "h"
+      INNER JOIN "Projeler" AS "p" ON "h"."ProjeId" = "p"."Id"
+      LEFT JOIN (
+          SELECT "h0"."Id", "h0"."Aciklama", "h0"."BirimFiyat", "h0"."HakedisId", "h0"."MaliyetKalemiId", "h0"."Miktar", "m"."Id" AS "Id0", "m"."Aciklama" AS "Aciklama0", "m"."Aktif", "m"."Birim", "m"."BirimFiyat" AS "BirimFiyat0", "m"."KalemAdi", "m"."Kategori", "m"."OlusturulmaTarihi", "m"."ProjeId", "m"."ToplamMiktar"
+          FROM "HakedisDetaylari" AS "h0"
+          INNER JOIN "MaliyetKalemleri" AS "m" ON "h0"."MaliyetKalemiId" = "m"."Id"
+      ) AS "t" ON "h"."Id" = "t"."HakedisId"
+      ORDER BY "h"."Id", "p"."Id", "t"."Id"
+fail: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[3]
+      The view 'Index' was not found. Searched locations: /Views/Hakedis/Index.cshtml, /Views/Shared/Index.cshtml, /Pages/Shared/Index.cshtml
+fail: Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware[1]
+      An unhandled exception has occurred while executing the request.
+      System.InvalidOperationException: The view 'Index' was not found. The following locations were searched:
+      /Views/Hakedis/Index.cshtml
+      /Views/Shared/Index.cshtml
+      /Pages/Shared/Index.cshtml
+         at Microsoft.AspNetCore.Mvc.ViewEngines.ViewEngineResult.EnsureSuccessful(IEnumerable`1 originalLocations)
+         at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+         at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+      --- End of stack trace from previous location ---
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+      --- End of stack trace from previous location ---
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+         at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+         at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+         at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Aciklama", "p"."Adres", "p"."BaslangicTarihi", "p"."BitisTarihi", "p"."Butce", "p"."Durum", "p"."MusteriAdi", "p"."OlusturulmaTarihi", "p"."ProjeAdi", "h"."Id", "h"."Aciklama", "h"."DonemBaslangic", "h"."DonemBitis", "h"."Durum", "h"."HakedisNo", "h"."HakedisTarihi", "h"."HakedisTutari", "h"."KdvOrani", "h"."OdemeTarihi", "h"."OlusturulmaTarihi", "h"."OnayTarihi", "h"."ProjeId", "m"."Id", "m"."Aciklama", "m"."Aktif", "m"."Birim", "m"."BirimFiyat", "m"."KalemAdi", "m"."Kategori", "m"."OlusturulmaTarihi", "m"."ProjeId", "m"."ToplamMiktar"
+      FROM "Projeler" AS "p"
+      LEFT JOIN "Hakedisler" AS "h" ON "p"."Id" = "h"."ProjeId"
+      LEFT JOIN "MaliyetKalemleri" AS "m" ON "p"."Id" = "m"."ProjeId"
+      ORDER BY "p"."Id", "h"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "h"."Id", "h"."Aciklama", "h"."DonemBaslangic", "h"."DonemBitis", "h"."Durum", "h"."HakedisNo", "h"."HakedisTarihi", "h"."HakedisTutari", "h"."KdvOrani", "h"."OdemeTarihi", "h"."OlusturulmaTarihi", "h"."OnayTarihi", "h"."ProjeId", "p"."Id", "p"."Aciklama", "p"."Adres", "p"."BaslangicTarihi", "p"."BitisTarihi", "p"."Butce", "p"."Durum", "p"."MusteriAdi", "p"."OlusturulmaTarihi", "p"."ProjeAdi", "t"."Id", "t"."Aciklama", "t"."BirimFiyat", "t"."HakedisId", "t"."MaliyetKalemiId", "t"."Miktar", "t"."Id0", "t"."Aciklama0", "t"."Aktif", "t"."Birim", "t"."BirimFiyat0", "t"."KalemAdi", "t"."Kategori", "t"."OlusturulmaTarihi", "t"."ProjeId", "t"."ToplamMiktar"
+      FROM "Hakedisler" AS "h"
+      INNER JOIN "Projeler" AS "p" ON "h"."ProjeId" = "p"."Id"
+      LEFT JOIN (
+          SELECT "h0"."Id", "h0"."Aciklama", "h0"."BirimFiyat", "h0"."HakedisId", "h0"."MaliyetKalemiId", "h0"."Miktar", "m"."Id" AS "Id0", "m"."Aciklama" AS "Aciklama0", "m"."Aktif", "m"."Birim", "m"."BirimFiyat" AS "BirimFiyat0", "m"."KalemAdi", "m"."Kategori", "m"."OlusturulmaTarihi", "m"."ProjeId", "m"."ToplamMiktar"
+          FROM "HakedisDetaylari" AS "h0"
+          INNER JOIN "MaliyetKalemleri" AS "m" ON "h0"."MaliyetKalemiId" = "m"."Id"
+      ) AS "t" ON "h"."Id" = "t"."HakedisId"
+      ORDER BY "h"."Id", "p"."Id", "t"."Id"
+fail: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[3]
+      The view 'Index' was not found. Searched locations: /Views/Hakedis/Index.cshtml, /Views/Shared/Index.cshtml, /Pages/Shared/Index.cshtml
+fail: Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware[1]
+      An unhandled exception has occurred while executing the request.
+      System.InvalidOperationException: The view 'Index' was not found. The following locations were searched:
+      /Views/Hakedis/Index.cshtml
+      /Views/Shared/Index.cshtml
+      /Pages/Shared/Index.cshtml
+         at Microsoft.AspNetCore.Mvc.ViewEngines.ViewEngineResult.EnsureSuccessful(IEnumerable`1 originalLocations)
+         at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+         at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+      --- End of stack trace from previous location ---
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+      --- End of stack trace from previous location ---
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+         at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+         at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+         at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__projeId_Value_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."ProjeAdi"
+      FROM "Projeler" AS "p"
+      WHERE "p"."Id" = @__projeId_Value_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__projeId_Value_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "m"."Id", "m"."Aciklama", "m"."Aktif", "m"."Birim", "m"."BirimFiyat", "m"."KalemAdi", "m"."Kategori", "m"."OlusturulmaTarihi", "m"."ProjeId", "m"."ToplamMiktar", "p"."Id", "p"."Aciklama", "p"."Adres", "p"."BaslangicTarihi", "p"."BitisTarihi", "p"."Butce", "p"."Durum", "p"."MusteriAdi", "p"."OlusturulmaTarihi", "p"."ProjeAdi"
+      FROM "MaliyetKalemleri" AS "m"
+      INNER JOIN "Projeler" AS "p" ON "m"."ProjeId" = "p"."Id"
+      WHERE "m"."ProjeId" = @__projeId_Value_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "m"."Id", "m"."Aciklama", "m"."Aktif", "m"."Birim", "m"."BirimFiyat", "m"."KalemAdi", "m"."Kategori", "m"."OlusturulmaTarihi", "m"."ProjeId", "m"."ToplamMiktar", "p"."Id", "p"."Aciklama", "p"."Adres", "p"."BaslangicTarihi", "p"."BitisTarihi", "p"."Butce", "p"."Durum", "p"."MusteriAdi", "p"."OlusturulmaTarihi", "p"."ProjeAdi"
+      FROM "MaliyetKalemleri" AS "m"
+      INNER JOIN "Projeler" AS "p" ON "m"."ProjeId" = "p"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Aciklama", "p"."Adres", "p"."BaslangicTarihi", "p"."BitisTarihi", "p"."Butce", "p"."Durum", "p"."MusteriAdi", "p"."OlusturulmaTarihi", "p"."ProjeAdi", "h"."Id", "h"."Aciklama", "h"."DonemBaslangic", "h"."DonemBitis", "h"."Durum", "h"."HakedisNo", "h"."HakedisTarihi", "h"."HakedisTutari", "h"."KdvOrani", "h"."OdemeTarihi", "h"."OlusturulmaTarihi", "h"."OnayTarihi", "h"."ProjeId", "m"."Id", "m"."Aciklama", "m"."Aktif", "m"."Birim", "m"."BirimFiyat", "m"."KalemAdi", "m"."Kategori", "m"."OlusturulmaTarihi", "m"."ProjeId", "m"."ToplamMiktar"
+      FROM "Projeler" AS "p"
+      LEFT JOIN "Hakedisler" AS "h" ON "p"."Id" = "h"."ProjeId"
+      LEFT JOIN "MaliyetKalemleri" AS "m" ON "p"."Id" = "m"."ProjeId"
+      ORDER BY "p"."Id", "h"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Aciklama", "p"."Adres", "p"."BaslangicTarihi", "p"."BitisTarihi", "p"."Butce", "p"."Durum", "p"."MusteriAdi", "p"."OlusturulmaTarihi", "p"."ProjeAdi", "h"."Id", "h"."Aciklama", "h"."DonemBaslangic", "h"."DonemBitis", "h"."Durum", "h"."HakedisNo", "h"."HakedisTarihi", "h"."HakedisTutari", "h"."KdvOrani", "h"."OdemeTarihi", "h"."OlusturulmaTarihi", "h"."OnayTarihi", "h"."ProjeId", "m"."Id", "m"."Aciklama", "m"."Aktif", "m"."Birim", "m"."BirimFiyat", "m"."KalemAdi", "m"."Kategori", "m"."OlusturulmaTarihi", "m"."ProjeId", "m"."ToplamMiktar"
+      FROM "Projeler" AS "p"
+      LEFT JOIN "Hakedisler" AS "h" ON "p"."Id" = "h"."ProjeId"
+      LEFT JOIN "MaliyetKalemleri" AS "m" ON "p"."Id" = "m"."ProjeId"
+      ORDER BY "p"."Id", "h"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Aciklama", "p"."Adres", "p"."BaslangicTarihi", "p"."BitisTarihi", "p"."Butce", "p"."Durum", "p"."MusteriAdi", "p"."OlusturulmaTarihi", "p"."ProjeAdi", "h"."Id", "h"."Aciklama", "h"."DonemBaslangic", "h"."DonemBitis", "h"."Durum", "h"."HakedisNo", "h"."HakedisTarihi", "h"."HakedisTutari", "h"."KdvOrani", "h"."OdemeTarihi", "h"."OlusturulmaTarihi", "h"."OnayTarihi", "h"."ProjeId", "m"."Id", "m"."Aciklama", "m"."Aktif", "m"."Birim", "m"."BirimFiyat", "m"."KalemAdi", "m"."Kategori", "m"."OlusturulmaTarihi", "m"."ProjeId", "m"."ToplamMiktar"
+      FROM "Projeler" AS "p"
+      LEFT JOIN "Hakedisler" AS "h" ON "p"."Id" = "h"."ProjeId"
+      LEFT JOIN "MaliyetKalemleri" AS "m" ON "p"."Id" = "m"."ProjeId"
+      ORDER BY "p"."Id", "h"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "h"."Id", "h"."Aciklama", "h"."DonemBaslangic", "h"."DonemBitis", "h"."Durum", "h"."HakedisNo", "h"."HakedisTarihi", "h"."HakedisTutari", "h"."KdvOrani", "h"."OdemeTarihi", "h"."OlusturulmaTarihi", "h"."OnayTarihi", "h"."ProjeId", "p"."Id", "p"."Aciklama", "p"."Adres", "p"."BaslangicTarihi", "p"."BitisTarihi", "p"."Butce", "p"."Durum", "p"."MusteriAdi", "p"."OlusturulmaTarihi", "p"."ProjeAdi", "t"."Id", "t"."Aciklama", "t"."BirimFiyat", "t"."HakedisId", "t"."MaliyetKalemiId", "t"."Miktar", "t"."Id0", "t"."Aciklama0", "t"."Aktif", "t"."Birim", "t"."BirimFiyat0", "t"."KalemAdi", "t"."Kategori", "t"."OlusturulmaTarihi", "t"."ProjeId", "t"."ToplamMiktar"
+      FROM "Hakedisler" AS "h"
+      INNER JOIN "Projeler" AS "p" ON "h"."ProjeId" = "p"."Id"
+      LEFT JOIN (
+          SELECT "h0"."Id", "h0"."Aciklama", "h0"."BirimFiyat", "h0"."HakedisId", "h0"."MaliyetKalemiId", "h0"."Miktar", "m"."Id" AS "Id0", "m"."Aciklama" AS "Aciklama0", "m"."Aktif", "m"."Birim", "m"."BirimFiyat" AS "BirimFiyat0", "m"."KalemAdi", "m"."Kategori", "m"."OlusturulmaTarihi", "m"."ProjeId", "m"."ToplamMiktar"
+          FROM "HakedisDetaylari" AS "h0"
+          INNER JOIN "MaliyetKalemleri" AS "m" ON "h0"."MaliyetKalemiId" = "m"."Id"
+      ) AS "t" ON "h"."Id" = "t"."HakedisId"
+      ORDER BY "h"."Id", "p"."Id", "t"."Id"
+fail: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[3]
+      The view 'Index' was not found. Searched locations: /Views/Hakedis/Index.cshtml, /Views/Shared/Index.cshtml, /Pages/Shared/Index.cshtml
+fail: Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware[1]
+      An unhandled exception has occurred while executing the request.
+      System.InvalidOperationException: The view 'Index' was not found. The following locations were searched:
+      /Views/Hakedis/Index.cshtml
+      /Views/Shared/Index.cshtml
+      /Pages/Shared/Index.cshtml
+         at Microsoft.AspNetCore.Mvc.ViewEngines.ViewEngineResult.EnsureSuccessful(IEnumerable`1 originalLocations)
+         at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+         at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+      --- End of stack trace from previous location ---
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+      --- End of stack trace from previous location ---
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+         at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+         at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+         at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "h"."Id", "h"."Aciklama", "h"."DonemBaslangic", "h"."DonemBitis", "h"."Durum", "h"."HakedisNo", "h"."HakedisTarihi", "h"."HakedisTutari", "h"."KdvOrani", "h"."OdemeTarihi", "h"."OlusturulmaTarihi", "h"."OnayTarihi", "h"."ProjeId", "p"."Id", "p"."Aciklama", "p"."Adres", "p"."BaslangicTarihi", "p"."BitisTarihi", "p"."Butce", "p"."Durum", "p"."MusteriAdi", "p"."OlusturulmaTarihi", "p"."ProjeAdi", "t"."Id", "t"."Aciklama", "t"."BirimFiyat", "t"."HakedisId", "t"."MaliyetKalemiId", "t"."Miktar", "t"."Id0", "t"."Aciklama0", "t"."Aktif", "t"."Birim", "t"."BirimFiyat0", "t"."KalemAdi", "t"."Kategori", "t"."OlusturulmaTarihi", "t"."ProjeId", "t"."ToplamMiktar"
+      FROM "Hakedisler" AS "h"
+      INNER JOIN "Projeler" AS "p" ON "h"."ProjeId" = "p"."Id"
+      LEFT JOIN (
+          SELECT "h0"."Id", "h0"."Aciklama", "h0"."BirimFiyat", "h0"."HakedisId", "h0"."MaliyetKalemiId", "h0"."Miktar", "m"."Id" AS "Id0", "m"."Aciklama" AS "Aciklama0", "m"."Aktif", "m"."Birim", "m"."BirimFiyat" AS "BirimFiyat0", "m"."KalemAdi", "m"."Kategori", "m"."OlusturulmaTarihi", "m"."ProjeId", "m"."ToplamMiktar"
+          FROM "HakedisDetaylari" AS "h0"
+          INNER JOIN "MaliyetKalemleri" AS "m" ON "h0"."MaliyetKalemiId" = "m"."Id"
+      ) AS "t" ON "h"."Id" = "t"."HakedisId"
+      ORDER BY "h"."Id", "p"."Id", "t"."Id"
+fail: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[3]
+      The view 'Index' was not found. Searched locations: /Views/Hakedis/Index.cshtml, /Views/Shared/Index.cshtml, /Pages/Shared/Index.cshtml
+fail: Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware[1]
+      An unhandled exception has occurred while executing the request.
+      System.InvalidOperationException: The view 'Index' was not found. The following locations were searched:
+      /Views/Hakedis/Index.cshtml
+      /Views/Shared/Index.cshtml
+      /Pages/Shared/Index.cshtml
+         at Microsoft.AspNetCore.Mvc.ViewEngines.ViewEngineResult.EnsureSuccessful(IEnumerable`1 originalLocations)
+         at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+         at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+      --- End of stack trace from previous location ---
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+      --- End of stack trace from previous location ---
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+         at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+         at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+         at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "m"."Id", "m"."Aciklama", "m"."Aktif", "m"."Birim", "m"."BirimFiyat", "m"."KalemAdi", "m"."Kategori", "m"."OlusturulmaTarihi", "m"."ProjeId", "m"."ToplamMiktar", "p"."Id", "p"."Aciklama", "p"."Adres", "p"."BaslangicTarihi", "p"."BitisTarihi", "p"."Butce", "p"."Durum", "p"."MusteriAdi", "p"."OlusturulmaTarihi", "p"."ProjeAdi"
+      FROM "MaliyetKalemleri" AS "m"
+      INNER JOIN "Projeler" AS "p" ON "m"."ProjeId" = "p"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Aciklama", "p"."Adres", "p"."BaslangicTarihi", "p"."BitisTarihi", "p"."Butce", "p"."Durum", "p"."MusteriAdi", "p"."OlusturulmaTarihi", "p"."ProjeAdi"
+      FROM "Projeler" AS "p"
+      WHERE "p"."Durum" = 0
